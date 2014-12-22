@@ -31,7 +31,7 @@ RUN cd /tmp && wget http://www.freedesktop.org/software/harfbuzz/release/harfbuz
     ldconfig
 
 # Install Mapserver itself
-RUN git clone --depth=0 https://github.com/mapserver/mapserver/ /usr/local/src/mapserver
+RUN git clone https://github.com/mapserver/mapserver/ /usr/local/src/mapserver
 
 # Compile Mapserver for Apache
 RUN mkdir /usr/local/src/mapserver/build && \
