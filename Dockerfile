@@ -97,6 +97,8 @@ RUN echo '<?php phpinfo();' > /var/www/info.php
 
 # Link to cgi-bin executable
 ln -s /usr/local/bin/mapserv /usr/lib/cgi-bin/mapserv
+# result in http://yourhostname.com/cgi-bin/mapserv
+
 
 # Volumes
 VOLUME ["/var/www", "/var/log/apache2", "/etc/apache2"]
