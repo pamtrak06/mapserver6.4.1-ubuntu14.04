@@ -96,7 +96,8 @@ RUN echo '<?php phpinfo();' > /var/www/info.php
 # Under Server API at the top you should see FPM/FastCGI.
 
 # Link to cgi-bin executable
-ln -s /usr/local/bin/mapserv /usr/lib/cgi-bin/mapserv
+RUN chmod o+x /usr/local/bin/mapserv
+RUN ln -s /usr/local/bin/mapserv /usr/lib/cgi-bin/mapserv
 # result in http://yourhostname.com/cgi-bin/mapserv
 
 
