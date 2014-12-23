@@ -66,12 +66,37 @@ RUN mkdir /usr/local/src/mapserver/build && \
     ldconfig
 
 
-# Apache configuration for mapcache
-#COPY mapserver.load /etc/apache2/mods-available/
-#COPY mapserver.conf /etc/apache2/mods-available/
+# Install the Apache Worker MPM (Multi-Procesing Modules)
+RUN sudo apt-get install apache2-mpm-worker
 
-# Enable mapcache module in Apache
-#RUN a2enmod mapserver
+# To reconcile this, the multiverse repository must be added to the apt sources.
+RUN echo 'deb http://archive.ubuntu.com/ubuntu utopic multiverse' >> /etc/apt/sources.list
+RUN echo 'deb http://archive.ubuntu.com/ubuntu utopic-updates multiverse' >> /etc/apt/sources.list
+RUN echo 'deb http://archive.ubuntu.com/ubuntu utopic-security multiverse' >> /etc/apt/sources.list
+RUN sudo apt-get update
+
+# Install PHP5 and necessary modules
+RUN sudo apt-get install -y libapache2-mod-fastcgi php5-fpm libapache2-mod-php5 php5-common php5-cli php5-fpm php5
+
+# Enable these Apache modules
+RUN sudo a2enmod actions fastcgi alias
+
+# Restart apache
+RUN sudo service apache2 restart
+
+# Apache configuration for PHP-FPM
+COPY php5-fpm.conf /etc/apache2/conf-available/
+
+# Restart apache
+RUN sudo service apache2 restart
+
+# Create the following PHP file in the document root /var/www 
+RUN echo '<?php phpinfo();' > /var/www/info.php
+# result in : http://your-server-ip/info.php
+# Under Server API at the top you should see FPM/FastCGI.
+
+# Link to cgi-bin executable
+ln -s /usr/local/bin/mapserv /usr/lib/cgi-bin/mapserv
 
 # Volumes
 VOLUME ["/var/www", "/var/log/apache2", "/etc/apache2"]
