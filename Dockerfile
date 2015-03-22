@@ -10,7 +10,7 @@ RUN apt-get update
 RUN apt-get install -y apache2 apache2-mpm-worker apache2-threaded-dev apache2-utils
 #libapache2-mod-fastcgi
 RUN a2enmod actions cgi alias
-RUN apt-get install libapache2-mod-php5 php5-common php5-cli php5-fpm php5
+RUN apt-get install -y libapache2-mod-php5 php5-common php5-cli php5-fpm php5
 
 # prerequisites
 RUN apt-get install -y php5-gd gdal-bin tilecache postgis
