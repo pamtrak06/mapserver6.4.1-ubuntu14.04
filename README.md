@@ -19,7 +19,7 @@ docker build -t pamtrak06/mapserver-ubuntugis14.04:latest https://raw.githubuser
 
 Run container
 ```
-$ docker run -d -p80:80 -v /usr/local/mapserver:/maps pamtrak06/mapserver-ubuntugis14.04
+$ docker run -d -p8989:80 -v /usr/local/mapserver:/maps pamtrak06/mapserver-ubuntugis14.04
 ```
 
 Data are shared between host (/usr/local/mapserver) and container (/maps).
@@ -42,7 +42,7 @@ $ boot2Docker ip => 192.168.59.103
 ```
 
 Test
-http://192.168.59.103:8787/cgi-bin/mapserv
+http://192.168.59.103:8989/cgi-bin/mapserv
 
 ```
 No query information to decode. QUERY_STRING is set, but empty.
