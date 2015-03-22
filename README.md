@@ -8,16 +8,15 @@
 
 # How to use this image
 
-## Build mapserver docker image
+## Build a local image
 
 This image is built under ubuntu 14.04.
 ```
 docker build -t pamtrak06/mapserver-ubuntugis14.04:latest https://raw.githubusercontent.com/pamtrak06/mapserver-ubuntugis14.04/master/Dockerfile
 ```
 
-## Run mapserver docker container
+## Run container
 
-Run container
 ```
 $ docker run -d -p8989:80 -v /usr/local/mapserver:/maps pamtrak06/mapserver-ubuntugis14.04
 ```
@@ -41,8 +40,7 @@ Get docker vm ip :
 $ boot2Docker ip => 192.168.59.103
 ```
 
-Test
-http://192.168.59.103:8989/cgi-bin/mapserv
+Test install : http://192.168.59.103:8989/cgi-bin/mapserv
 
 ```
 No query information to decode. QUERY_STRING is set, but empty.
