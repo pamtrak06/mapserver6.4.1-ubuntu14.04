@@ -7,7 +7,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 314DF160
 RUN apt-get update
 
 # install apache
-RUN apt-get install -y apache2 apache2-mpm-worker 
+RUN apt-get install -y apache2 apache2-mpm-worker apache2-threaded-dev apache2-utils
 #libapache2-mod-fastcgi
 RUN a2enmod actions cgi alias
 RUN apt-get install libapache2-mod-php5 php5-common php5-cli php5-fpm php5
