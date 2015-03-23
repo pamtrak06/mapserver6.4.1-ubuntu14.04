@@ -22,7 +22,7 @@ $ docker run -d -p8989:80 -v /usr/local/mapserver:/maps pamtrak06/mapserver-ubun
 ```
 
 Data are shared between host (/usr/local/mapserver) and container (/maps).
-All *.map file could be stored in /maps ans data in /maps/data
+All *.map file could be stored in /maps and data in /maps/data
 
 Open a terminal session on a running container
 ```
