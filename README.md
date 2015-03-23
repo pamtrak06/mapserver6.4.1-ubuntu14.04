@@ -45,6 +45,3 @@ Test install : http://192.168.59.103:8989/cgi-bin/mapserv
 ```
 No query information to decode. QUERY_STRING is set, but empty.
 ```
-
-## Configure container
-
