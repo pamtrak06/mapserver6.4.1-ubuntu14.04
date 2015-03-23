@@ -10,7 +10,7 @@
 
 ## Build a local image
 
-This image is built under ubuntu 14.04.
+This image is built under ubuntu 14.04 with mapserver version 6.4.1.
 ```
 docker build -t pamtrak06/mapserver-ubuntugis14.04:latest https://raw.githubusercontent.com/pamtrak06/mapserver-ubuntugis14.04/master/Dockerfile
 ```
