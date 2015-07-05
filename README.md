@@ -12,22 +12,22 @@
 
 This image is built under ubuntu 14.04 with mapserver version 6.4.1.
 ```
-docker build -t pamtrak06/mapserver-ubuntugis14.04:latest https://raw.githubusercontent.com/pamtrak06/mapserver-ubuntugis14.04/master/Dockerfile
+docker build -t pamtrak06/mapserver6.4.1-ubuntu14.04:latest https://raw.githubusercontent.com/pamtrak06/mapserver6.4.1-ubuntu14.04/master/Dockerfile
 ```
 
 ## Run container
 
 ```
-$ docker run -d -p 8989:80 -v /usr/local/mapserver:/maps pamtrak06/mapserver-ubuntugis14.04
+$ docker run -d -p 8989:80 -v /usr/local/mapserver/data:/data pamtrak06/mapserver-ubuntu14.04
 ```
 
-Data are shared between host (/usr/local/mapserver) and container (/maps).
-All *.map file could be stored in /maps and data in /maps/data
+Data are shared between host (/usr/local/mapserver/data) and container (/data).
+All *.map file could be stored in /data and data in /data/maps
 
 Open a terminal session on a running container
 ```
 $ docker ps
-$ docker exec -d pamtrak06/mapserver-ubuntugis14.04 /bin/bash
+$ docker exec -d pamtrak06/mapserver6.4.1-ubuntu14.04 /bin/bash
 ```
 
 Exit container without stop it
